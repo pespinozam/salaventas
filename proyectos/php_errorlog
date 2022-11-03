@@ -1,0 +1,50 @@
+[06-Oct-2022 14:05:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php:26
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/24crisostomo.php(13): valida_uf()
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php on line 26
+[06-Oct-2022 14:06:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php:26
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/24crisostomo.php(13): valida_uf()
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php on line 26
+[06-Oct-2022 14:07:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php:26
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/24crisostomo.php(13): valida_uf()
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php on line 26
+[06-Oct-2022 14:08:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php:26
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/24crisostomo.php(13): valida_uf()
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php on line 26
+[06-Oct-2022 14:23:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php:26
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/24crisostomo.php(13): valida_uf()
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php on line 26
+[02-Nov-2022 20:45:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/customer/www/salaventas.surmonte.cl/public_html/includes/session_data.php:8
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/153sancristobal.php(11): data_user_session('17777291-7')
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/session_data.php on line 8
+[02-Nov-2022 20:45:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/customer/www/salaventas.surmonte.cl/public_html/includes/session_data.php:8
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/153sancristobal.php(11): data_user_session('17777291-7')
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/session_data.php on line 8
+[02-Nov-2022 20:46:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php:26
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/131wood.php(12): valida_uf()
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php on line 26
+[02-Nov-2022 20:46:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php:26
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/153sancristobal.php(13): valida_uf()
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/uf_methods.php on line 26
+[02-Nov-2022 20:47:47 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/customer/www/salaventas.surmonte.cl/public_html/includes/session_data.php:8
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/proyectos/153sancristobal.php(11): data_user_session('17777291-7')
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/session_data.php on line 8

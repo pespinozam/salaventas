@@ -1,0 +1,182 @@
+[03-Oct-2022 13:55:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:05 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:05 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:56:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 13:58:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/email.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/email.php on line 26
+[03-Oct-2022 14:01:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 14:05:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/loginProceso.php on line 15
+[03-Oct-2022 15:24:07 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "Invalid value for parameter: details[0].commerce_code" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(59): Transbank\Webpay\WebpayPlus\MallTransaction->create('113630-24CRISOS...', '633afe96c3674', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:24:59 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "Invalid value for parameter: details[0].commerce_code" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(61): Transbank\Webpay\WebpayPlus\MallTransaction->create('113630-24CRISOS...', '633afecaa0c5b', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:25:48 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "Invalid value for parameter: details[0].commerce_code" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(61): Transbank\Webpay\WebpayPlus\MallTransaction->create('113630-24CRISOS...', '633afefc2dcc0', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:26:24 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "Invalid value for parameter: details[0].commerce_code" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(61): Transbank\Webpay\WebpayPlus\MallTransaction->create('113631-24CRISOS...', '633aff201b541', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:27:47 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "Invalid value for parameter: details[0].commerce_code" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(61): Transbank\Webpay\WebpayPlus\MallTransaction->create('113631-24CRISOS...', '633aff725fed6', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:28:19 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php on line 54
+[03-Oct-2022 15:28:37 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "Invalid value for parameter: details[0].commerce_code" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(61): Transbank\Webpay\WebpayPlus\MallTransaction->create('113631-24CRISOS...', '633affa44ad80', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:35:40 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "Unexpected error" [500] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(61): Transbank\Webpay\WebpayPlus\MallTransaction->create('113632-24CRISOS...', '633b014c028bc', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:37:52 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "Invalid value for parameter: details[0].commerce_code" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(61): Transbank\Webpay\WebpayPlus\MallTransaction->create('113633-153SANCR...', '633b01cfb08df', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:44:52 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "details[0].commerce_code is required!" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(59): Transbank\Webpay\WebpayPlus\MallTransaction->create('-', '633b03737d495', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:48:07 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCommitException: API Response: "Invalid value for parameter: token" [422] - The transaction could not be confirmed in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(87): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(103): Transbank\Webpay\WebpayPlus\MallTransaction->commit('11311c0ea1c13f1...')
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:51:25 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCommitException: API Response: "Invalid value for parameter: token" [422] - The transaction could not be confirmed in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(87): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(103): Transbank\Webpay\WebpayPlus\MallTransaction->commit('1131e493930fbc7...')
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[03-Oct-2022 15:57:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function commit() on null in /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php:103
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php on line 103
+[03-Oct-2022 16:08:13 UTC] PHP Fatal error:  Uncaught Mpdf\MpdfException: Data has already been sent to output, unable to output PDF file in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/mpdf/mpdf/src/Mpdf.php:9601
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/comprobante.php(76): Mpdf\Mpdf->Output('Comprobante.pdf', 'D')
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/mpdf/mpdf/src/Mpdf.php on line 9601
+[03-Oct-2022 19:04:44 UTC] PHP Fatal error:  Uncaught Mpdf\MpdfException: Data has already been sent to output, unable to output PDF file in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/mpdf/mpdf/src/Mpdf.php:9601
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/comprobante.php(76): Mpdf\Mpdf->Output('Comprobante.pdf', 'D')
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/mpdf/mpdf/src/Mpdf.php on line 9601
+[03-Oct-2022 20:33:26 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "details[0].commerce_code is required!" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(59): Transbank\Webpay\WebpayPlus\MallTransaction->create('113644-131WOOD', '633b4715a32a0', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[04-Oct-2022 18:39:50 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "details[0].commerce_code is required!" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(59): Transbank\Webpay\WebpayPlus\MallTransaction->create('113648-TALAVERA...', '633c7df5897c0', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[04-Oct-2022 18:43:58 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "details[0].commerce_code is required!" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(59): Transbank\Webpay\WebpayPlus\MallTransaction->create('113649-TALAVERA...', '633c7eedddabf', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[04-Oct-2022 18:45:56 UTC] PHP Fatal error:  Uncaught Transbank\Webpay\WebpayPlus\Exceptions\MallTransactionCreateException: API Response: "details[0].commerce_code is required!" [422] - The transaction could not be created. in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php:76
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/WebpayPlus/MallTransaction.php(64): Transbank\Webpay\Exceptions\WebpayRequestException::raise(Object(Transbank\Webpay\Exceptions\WebpayRequestException))
+#1 /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php(59): Transbank\Webpay\WebpayPlus\MallTransaction->create('113651-TALAVERA...', '633c7f63a5850', 'https://salaven...', Array)
+#2 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/transbank/transbank-sdk/src/Webpay/Exceptions/WebpayRequestException.php on line 76
+[04-Oct-2022 18:49:03 UTC] PHP Fatal error:  Uncaught Mpdf\MpdfException: Data has already been sent to output, unable to output PDF file in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/mpdf/mpdf/src/Mpdf.php:9601
+Stack trace:
+#0 /home/customer/www/salaventas.surmonte.cl/public_html/comprobante.php(76): Mpdf\Mpdf->Output('Comprobante.pdf', 'D')
+#1 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/vendor/mpdf/mpdf/src/Mpdf.php on line 9601
+[03-Nov-2022 15:41:35 UTC] PHP Fatal error:  Uncaught Error: Call to a member function isApproved() on null in /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/transaction.php on line 102

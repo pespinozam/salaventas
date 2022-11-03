@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+h4{
+    color: rgb(255,151,53);
+}
+
+
+
+body{
+    height: 400px;
+    background-size: cover;
+    font-family: 'Lato', sans-serif;
+    background-image: url(https://www.surmonte.cl/wp-content/uploads/ECHE_46_TALAA_119.jpg);
+}
+
+.btn-orange{
+    background-color: rgb(255,151,53);
+}

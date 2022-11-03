@@ -1,0 +1,7 @@
+{
+    "require": {
+        "transbank/transbank-sdk": "2.0",
+        "mpdf/mpdf": "^8.1",
+        "mailjet/mailjet-apiv3-php": "^1.5"
+    }
+}
