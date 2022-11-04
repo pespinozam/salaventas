@@ -6,6 +6,16 @@ session_start();
 $link = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $escaped_link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
 
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/131wood.php'){
+    $llave = false;
+}else{
+    $llave = true;
+}
+
+
 if (isset($_SESSION['rut'])) {
     $session_data = data_user_session($_SESSION['rut']);
 }
@@ -1446,7 +1456,13 @@ $(document).ready(function(){
             imageHeight: 30,
             imageAlt: 'Logo surmonte',
             html: '<h5>¡Hola! Si quieres tener una experiencia mas rápida.</h5>'+
-            '<form method="POST" action="https://salaventas.surmonte.cl/login.php" target="_blank"> '+
+
+            if($llave == true){
+                $fm = '<form method="POST" action="https://salaventas.surmonte.cl/login.php" target="_blank"> '
+            }else{
+                $fm = '<form method="POST" action="https://localhost/salaventas/login.php" target="_blank"> '
+            }
+            $fm +
             '<input type="hidden" name="linkred" value="<?php echo ($escaped_link); ?>">'+
             '<a><button type="submit" style="background-color: transparent; color: blue" class="btn btn-light check_vars">¡Inicia sesión aquí!</button></a></form>',
             // '<a href="http://localhost/flujocompra/login.php">¡Inicia sesión aquí!</a> ',

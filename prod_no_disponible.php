@@ -1,5 +1,5 @@
 <?php
-
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 require_once 'includes/db.php';
 require_once 'includes/uf_methods.php';
 require_once 'vendor/ti.php';
@@ -7,10 +7,25 @@ session_start();
 
 $varsesion = $_SESSION['rut'];
 
-if($varsesion == null || $varsesion = ''){
-    header("Location: https://salaventas.surmonte.cl/login.php");
-    die();
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/prod_no_disponible.php'){
+    $llave = false;
+}else{
+    $llave = true;
 }
+
+if($varsesion == null || $varsesion = ''){
+    if($llave == true)
+    {
+        header("Location: https://salaventas.surmonte.cl/login.php");
+        die();
+    }else{
+        header("Location: https://localhost/salaventas/login.php");
+    die();
+    }
+    
+}
+
 $uf_actual = valida_uf();
 ?>
 <!DOCTYPE html>

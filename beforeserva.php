@@ -1,5 +1,5 @@
 <?php 
-
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     require_once 'includes/db_surmonte.php';
 
     // iniciar conexion
@@ -107,7 +107,9 @@
     }
 
     if(count($errores) == 0){
+        
         echo '<form action="reserva.php" method="POST">
+        
                     <input type="hidden" name="depto" value="'. $depto .'">
                     <input type="hidden" name="bod" value="'. $bodega .'">
                     <input type="hidden" name="est" value="'. $estacionamiento .'">
@@ -136,8 +138,12 @@
         // $alert = $alert . '")} alertFN();</script>';
 
         // echo $alert;
+        if($enlace_actual == 'http://localhost/salaventas/reserva.php'){
+            header("Location: http://localhost/salaventas/prod_no_disponible.php?proyecto=" . $proyecto);
+        }else{
+            header("Location: https://salaventas.surmonte.cl/prod_no_disponible.php?proyecto=" . $proyecto);
+        }
         
-        header("Location: https://salaventas.surmonte.cl/prod_no_disponible.php?proyecto=" . $proyecto);
                         
     }
 ?>

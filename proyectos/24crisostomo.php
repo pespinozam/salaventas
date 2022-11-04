@@ -3,6 +3,15 @@ require_once '../includes/session_data.php';
 require_once '../includes/uf_methods.php';
 session_start();
 
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/24crisostomo.php'){
+    $llave = false;
+}else{
+    $llave = true;
+}
+
 $link = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $escaped_link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
 // echo 'link: '.$escaped_link.'.';
@@ -1254,7 +1263,13 @@ $(document).ready(function(){
             imageHeight: 30,
             imageAlt: 'Logo surmonte',
             html: '<h5>¡Hola! Si quieres tener una experiencia mas rápida.</h5>'+
-            '<form method="POST" action="https://salaventas.surmonte.cl/login.php" target="_blank"> '+
+            if($llave == true){
+                $fm = '<form method="POST" action="https://salaventas.surmonte.cl/login.php" target="_blank"> '
+            }else{
+                $fm = '<form method="POST" action="https://localhost/salaventas/login.php" target="_blank"> '
+            }
+            $fm +
+
             '<input type="hidden" name="linkred" value="<?php echo ($escaped_link); ?>">'+
             '<a><button type="submit" style="background-color: transparent; color: blue" class="btn check_vars">¡Inicia sesión aquí!</button></a></form>',
             // '<a href="http://localhost/flujocompra/login.php">¡Inicia sesión aquí!</a> ',
