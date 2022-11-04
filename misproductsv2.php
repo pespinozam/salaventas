@@ -1,14 +1,28 @@
 <?php
-
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 require_once 'includes/db.php';
 require_once 'vendor/ti.php';
 session_start();
 
 $varsesion = $_SESSION['rut'];
 
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/misproductsv2.php'){
+    $llave = false;
+}else{
+    $llave = true;
+}
 if($varsesion == null || $varsesion = ''){
-    header("Location: https://salaventas.surmonte.cl/login.php");
+    if($llave == true)
+    {
+        header("Location: https://salaventas.surmonte.cl/login.php");
+        die();
+    }else{
+        header("Location: https://localhost/salaventas/login.php");
     die();
+    }
+
+   
 }
 
 ?>

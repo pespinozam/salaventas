@@ -16,6 +16,16 @@ if (!$action) {
 $hoy = date("Y-m-d");
 $conexion = new DB;
 $uf_actual = valida_uf();
+
+
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/transaction.php'){
+    $llave = false;
+}else{
+    $llave = true;
+}
+
 /*
 |--------------------------------------------------------------------------
 | Crear transacción
@@ -54,8 +64,11 @@ if ($_GET['action'] === 'create') {
             "buy_order" => $id_cotizacion."-".$proyecto
         ]
     ];
+
+  if($llave == true){
     
     $url = "https://salaventas.surmonte.cl/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."";
+    // $url = "https://salaventas.surmonte.cl/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."";
 
     $createResponse = $transaction->create($id_cotizacion."-".$proyecto, uniqid(),"https://salaventas.surmonte.cl/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."", $transaction_details);
     $token = $createResponse->getToken();
@@ -68,6 +81,22 @@ if ($_GET['action'] === 'create') {
     $redirectUrl = $url.'?token_ws='.$token;
     header('Location: '.$redirectUrl, true, 302);
     exit;
+  }else{
+    $url = "http://localhost/salaventas/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."";
+    $createResponse = $transaction->create($id_cotizacion."-".$proyecto, uniqid(),"https://localhost/salaventas/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."", $transaction_details);
+    $token = $createResponse->getToken();
+    $url = $createResponse->getUrl();
+
+    // Acá guardar el token recibido ($createResponse->getToken()) en tu base de datos asociado a la orden o
+    // lo que se esté pagando en tu sistema
+
+    //Redirigimos al formulario de Webpay por GET, enviando a la URL recibida con el token recibido.
+    $redirectUrl = $url.'?token_ws='.$token;
+    header('Location: '.$redirectUrl, true, 302);
+    exit;
+  }
+    
+
     
 }
 
