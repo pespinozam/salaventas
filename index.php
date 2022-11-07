@@ -160,7 +160,23 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
             </div>
         </div>
     </div>
+    <div class="col-12 col-md-4">
+        <div class="card">
+            <div class="card-body">
+              <!-- 273santiago -->
+              <?php 
+                  if($llave == true){
+                      echo '<a href="https://salaventas.surmonte.cl/proyectos/273santiago.php"><img  style="width: 100%;" src="assets/proyectos/273santiago.PNG"></a>';
+                  }else{
+                      echo '<a href="http://localhost/salaventas/proyectos/273santiago.php"><img style="width: 100%;" src="assets/proyectos/273santiago.PNG"></a>';
+                  }
+              ?>
+            
+            </div>
+        </div>
+    </div>
   </div>
+  
 
 </div>
 <div class="container my-3 my-md-5" style="border: 1px; border-color: #808080; border-style: solid;">
