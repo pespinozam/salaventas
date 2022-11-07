@@ -5,15 +5,6 @@
 <?php  
 $uf_actual = valida_uf();
 $ct = $_GET['cot']; 
-$llave = false;
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-
-if($enlace_actual == 'http://localhost/salaventas/detReserva.php'){
-    $llave = false;
-}else{
-    // header("Location: https://salaventas.surmonte.cl/index.php");
-    $llave = true;
-}
 
 ?>
 
@@ -21,6 +12,18 @@ if($enlace_actual == 'http://localhost/salaventas/detReserva.php'){
 
 
 <div class="container-fluid">
+    <?php
+    $llave = false;
+    $enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    
+    if($enlace_actual == 'http://localhost/salaventas/detReserva.php'){
+        $llave = false;
+    }else{
+        // header("Location: https://salaventas.surmonte.cl/index.php");
+        $llave = true;
+    }
+     ?>
+
     <div class="row mx-5 mt-5">
         <h3>Detalle Reserva</h3>
         <hr class="">

@@ -2,13 +2,7 @@
 session_start();
 
 
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/index.php'){
-    $llave = false;
-}else{
-    $llave = true;
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,6 +22,15 @@ if($enlace_actual == 'http://localhost/salaventas/index.php'){
     <?php include 'includes/nav_home.php';?>
 </header>
 <body style="background-color: white; font-family: Lato; margin-top: 100px;">
+<?php 
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaventas/index.php' ){
+    $llave = false;
+}else{
+    $llave = true;
+}
+?>
 <!-- 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container-fluid">

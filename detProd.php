@@ -7,15 +7,7 @@
 $ct = $_GET['prod']; 
 $rut = $_GET['rut_cli'];
 // echo $rut;
-$llave = false;
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
-if($enlace_actual == 'http://localhost/salaventas/detProd.php'){
-    $llave = false;
-}else{
-    // header("Location: https://salaventas.surmonte.cl/index.php");
-    $llave = true;
-}
 
 ?>
 
@@ -23,6 +15,16 @@ if($enlace_actual == 'http://localhost/salaventas/detProd.php'){
 
 
 <div class="container-fluid">
+    <?php 
+    $llave = false;
+    $enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    
+    if($enlace_actual == 'http://localhost/salaventas/detProd.php'){
+        $llave = false;
+    }else{
+        // header("Location: https://salaventas.surmonte.cl/index.php");
+        $llave = true;
+    }?>
 
    <div class="row mx-5 mt-5">
         <h3>Detalle Departamento</h3>

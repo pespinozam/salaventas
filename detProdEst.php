@@ -5,6 +5,14 @@ $ct = $_GET['prod'];
 $rut = $_GET['rut_cli'];
 // echo $rut;
 
+
+?>
+
+<?php startblock('content') ?>
+
+
+<div class="container-fluid">
+<?php 
 $llave = false;
 $enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
@@ -15,12 +23,6 @@ if($enlace_actual == 'http://localhost/salaventas/detProdEst.php'){
     $llave = true;
 }
 ?>
-
-<?php startblock('content') ?>
-
-
-<div class="container-fluid">
-
    <div class="row mx-5 mt-5">
       <div class="col-12 col-md-6 justify-content-center justify-content-md-start">
          <h3>Detalle Estacionamiento</h3>
