@@ -7,12 +7,6 @@ $link = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $escaped_link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
 
 
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/252marathon.php'){
-    $llave = false;
-}else{
-    $llave = true;
-}
 
 
 if (isset($_SESSION['rut'])) {
@@ -167,6 +161,13 @@ width:100%!important;
 </header>
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50" style="background-color: white; font-family: Lato; margin-top: 100px;">
 
+<?php $enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $llave = false;
+    if($enlace_actual == 'http://localhost/salaventas/proyectos/252marathon.php'){
+        $llave = false;
+    }else{
+        $llave = true;
+    }?>
 
 <span style="display: none;" id="proyecto">252MARATHON</span>
 
@@ -1124,8 +1125,10 @@ width:100%!important;
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://kit.fontawesome.com/f5939545a8.js" crossorigin="anonymous"></script>
-<script src="../assets/js/sidebar.js"></script> 
+<script src="../assets/js/sidebar.js"></script>
+
 <script>
+
 function validacion_cotizar(depto, nombre_completo, rut, email, telefono, invertir_vivir, id){
     var validacion = false
     var campos_vacios = true
@@ -1339,7 +1342,8 @@ $(document).ready(function(){
     <?php } ?>
     <?php if(isset($session_data[0]['rut_cliente'])){ ?>
         $('.rut').css('border', '1px solid green');
-    <?php } ?>
+    <?php } 
+    ?>
     <?php if(!(isset($_SESSION['rut']))){ ?>
     Swal.fire({
             title: '',
@@ -1347,15 +1351,24 @@ $(document).ready(function(){
             imageWidth: 140,
             imageHeight: 30,
             imageAlt: 'Logo surmonte',
-            html: '<h5>¡Hola! Si quieres tener una experiencia mas rápida.</h5>'+
+            <?php 
             if($llave == true){
-                $fm = '<form method="POST" action="https://salaventas.surmonte.cl/login.php" target="_blank"> '
-            }else{
-                $fm = '<form method="POST" action="https://localhost/salaventas/login.php" target="_blank"> '
-            }
-            $fm +
+                ?>
+                html: '<h5>¡Hola! Si quieres tener una experiencia mas rápida.</h5>'+
+                '<form method="POST" action="https://salaventas.surmonte.cl/login.php" target="_blank"> '+
+                '<input type="hidden" name="linkred" value="<?php echo ($escaped_link); ?>">'+
+                '<a><button type="submit" style="background-color: transparent; color: blue" class="btn btn-light check_vars">¡Inicia sesión aquí!</button></a></form>',
+                <?php
+            }else{ ?> 
+            html: '<h5>¡Hola! Si quieres tener una experiencia mas rápida.</h5>'+
+            '<form method="POST" action="http://localhost/salaventas/login.php" target="_blank"> '+
             '<input type="hidden" name="linkred" value="<?php echo ($escaped_link); ?>">'+
             '<a><button type="submit" style="background-color: transparent; color: blue" class="btn btn-light check_vars">¡Inicia sesión aquí!</button></a></form>',
+            <?php
+            }
+            ?>
+            
+            
             // '<a href="http://localhost/flujocompra/login.php">¡Inicia sesión aquí!</a> ',
             showCloseButton: true,
             focusConfirm: false,
