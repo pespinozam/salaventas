@@ -711,6 +711,443 @@ width:100%!important;
  
 
             </div>
+            <div class="accordion border border-4 border-dark" id="accordionExample">
+
+
+                
+            
+                <!-- 5 PROGRAMGAS -->
+                <!-- 1RO 1D + 1B  -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Programa 1D + 1B
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="btn" data-bs-toggle="collapse" href="#collapseA1">
+                                        <b class="card-title">Tipología A1</b>
+                                    </a>
+                                </div>
+                                <div id="collapseA1" class="collapse" data-bs-parent="#accordion">
+                                    <div class="card-body">
+                        
+                                        <div id="select">
+                                            <?php 
+                                                foreach($decoded_json as $rkey => $resource) {
+                                                        if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "A1" ){
+                                                        $departamentosA1[] = $resource["productos_id"]." | ".$resource["productos_nombre"]." | ".$resource["productos_tipo"]." | ".$resource["productos_cantidad_dormitorios"]."D + ".$resource["productos_cantidad_banios"]."B | UF ".$resource["productos_precio_lista"]." | ".$resource["productos_orientacion"]." | ".$resource["productos_superficie_comercial"];
+                                                    }
+                                            }?>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <?php 
+                                                    foreach($decoded_json as $rkey => $resource) {
+                                                            if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "A1"){
+                                                            echo "<img id='url_imgA1' class='img-fluid' width='100%' src='".$resource["productos_url_planta"]."'></img>";
+                                                            break;
+                                                        }
+                                                    }?>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="departamento">Departamentos:  </label>
+                                                    <select data-bs-toggle="tooltip" title="Departamentos disponibles en el proyecto seleccionado."  id="departamentoA1" class="form-select selectcito" name="nombre_proyecto">
+                                                        <option value="0">Seleccione Departamento<option>
+                                                    <?php
+                                                            foreach(array_unique($departamentosA1) as $val) {
+                                                                echo "<option value='".$val."'>".$val."</option>";
+                                                    }?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <hr>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label for="estacionamiento">¿Deseas Estacionamiento?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" onchange="despliegaEstacionamiento('A1');" name="radioEstacionamientoA1" id="estaRadio1" value="1">
+                                                        <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" onchange="despliegaEstacionamiento('A1');" name="radioEstacionamientoA1" id="estaRadio2" value="0" checked>
+                                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div id="divSelectEstA1" class="d-none">   
+                                                        <label for="estacionamiento">Estacionamiento:  </label>
+                                                        <select data-bs-toggle="tooltip" title="Estacionamientos disponibles en el proyecto seleccionado." id="estacionamientoA1" class="form-select selectcito" name="nombre_proyecto">
+                                                            <option value="0">Seleccione Estacionamiento<option>
+                                                            <?php
+                                                                    foreach(array_unique($estacionamientos) as $val) {
+                                                                        echo "<option value='".$val."'>".$val."</option>";
+                                                            }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label for="estacionamiento">¿Deseas Bodega?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input classRadioBod" type="radio" onchange="despliegaBodega('A1');" name="radioBodegaA1" id="bodRadio1" value="1">
+                                                        <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input classRadioBod" type="radio" onchange="despliegaBodega('A1');" name="radioBodegaA1" id="bodRadio2" value="0" checked>
+                                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div id="divSelectBodA1" class="d-none">  
+                                                        <label for="bodega">Bodega: </label>
+                                                        <select data-bs-toggle="tooltip" title="Bodegas disponibles en el proyecto seleccionado." id="bodegaA1" class="form-select selectcito" name="nombre_proyecto">
+                                                            <option  value="0">Seleccione Bodega<option>
+                                                        <?php
+                                                                foreach(array_unique($bodegas) as $val) {
+                                                                    echo "<option value='".$val."'>".$val."</option>";
+                                                        }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                    <label for="nombre">Nombre y Apellido: </label>
+                                                    <input value="<?php echo isset($session_data[0]['nombre_cliente']) ? ucwords($session_data[0]['nombre_cliente']) : '';?>" maxlength="100" data-bs-toggle="tooltip" title="Por favor escribe tu Nombre y Apellido." onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)) || (event.charCode == 32) || (event.charCode == 209) || (event.charCode == 241)" id="nombre_completoA1" class="form-control nombreCotizante" name="nombre_proyecto">
+                                            </div>
+                                            <div class="col-md-6">
+                                                    <label class="control-label" for="inputEmail">RUT:</label>
+                                                    <input value="<?php echo isset($session_data[0]['rut_cliente']) ? $session_data[0]['rut_cliente'] : '';?>" maxlength="12" data-bs-toggle="tooltip" title="Por favor escribe tu Rut" id="rutA1" class="form-control rut" name="nombre_proyecto">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="email">E-mail: </label>
+                                                <input value="<?php echo isset($session_data[0]['email']) ? $session_data[0]['email'] : '';?>" type="email" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 64) || (event.charCode == 45) || (event.charCode == 95) || (event.charCode >= 46) || (event.charCode >= 241))" maxlength="100" data-bs-toggle="tooltip" title="Por favor escribe tu E-mail, por este medio nos contactaremos contigo." id="emailA1" class="form-control emailCotizante" name="nombre_proyecto">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="email">Teléfono: </label>
+                                                <input value="<?php echo isset($session_data[0]['telefono1']) ? $session_data[0]['telefono1'] : '';?>" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 43))" maxlength="12" data-bs-toggle="tooltip" title="Por favor escribe tu teléfono, por este medio nos contactaremos contigo." id="telefonoA1" class="form-control telefonoCotizante" name="nombre_proyecto" value="+569">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="inv-vi">¿Invertir o Vivir? </label>
+                                                <select data-bs-toggle="tooltip" title="Desear vivir o invertir con nuestros productos." id="invertir_vivirA1" class="form-select selectcito" name="nombre_proyecto">
+                                                    <option  value="1">Vivir</option>
+                                                    <option  value="2">Invertir</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="v-center d-grid gap-1 col-6 mx-auto">
+                                                <a href="#contenido" id="check_varsA1" class="btn btn-dark check_vars">Cotizar</a>
+                                            </div>
+                                        </div>
+                                        <!-- <a href="#contenido" id="check_varsA1"  class="btn btn-dark check_vars">Cotizar</a> -->
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- a2 1d + 2 b -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="btn" data-bs-toggle="collapse" href="#collapseA2">
+                                        <b class="card-title">Tipología A2</b>
+                                    </a>
+                                </div>
+                                <div id="collapseA2" class="collapse" data-bs-parent="#accordion">
+                                    <div class="card-body">
+                        
+                                        <div id="select">
+                                            <?php 
+                                                foreach($decoded_json as $rkey => $resource) {
+                                                        if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "A2" ){
+                                                        $departamentosA2[] = $resource["productos_id"]." | ".$resource["productos_nombre"]." | ".$resource["productos_tipo"]." | ".$resource["productos_cantidad_dormitorios"]."D + ".$resource["productos_cantidad_banios"]."B | UF ".$resource["productos_precio_lista"]." | ".$resource["productos_orientacion"]." | ".$resource["productos_superficie_comercial"];
+                                                    }
+                                            }?>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <?php 
+                                                    foreach($decoded_json as $rkey => $resource) {
+                                                            if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "A2"){
+                                                            echo "<img id='url_imgA1' class='img-fluid' width='100%' src='".$resource["productos_url_planta"]."'></img>";
+                                                            break;
+                                                        }
+                                                    }?>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="departamento">Departamentos:  </label>
+                                                    <select data-bs-toggle="tooltip" title="Departamentos disponibles en el proyecto seleccionado."  id="departamentoA2" class="form-select selectcito" name="nombre_proyecto">
+                                                        <option value="0">Seleccione Departamento<option>
+                                                    <?php
+                                                            foreach(array_unique($departamentosA2) as $val) {
+                                                                echo "<option value='".$val."'>".$val."</option>";
+                                                    }?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <hr>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label for="estacionamiento">¿Deseas Estacionamiento?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" onchange="despliegaEstacionamiento('A2');" name="radioEstacionamientoA2" id="estaRadio1" value="1">
+                                                        <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" onchange="despliegaEstacionamiento('A2');" name="radioEstacionamientoA2" id="estaRadio2" value="0" checked>
+                                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div id="divSelectEstA2" class="d-none">   
+                                                        <label for="estacionamiento">Estacionamiento:  </label>
+                                                        <select data-bs-toggle="tooltip" title="Estacionamientos disponibles en el proyecto seleccionado." id="estacionamientoA2" class="form-select selectcito" name="nombre_proyecto">
+                                                            <option value="0">Seleccione Estacionamiento<option>
+                                                            <?php
+                                                                    foreach(array_unique($estacionamientos) as $val) {
+                                                                        echo "<option value='".$val."'>".$val."</option>";
+                                                            }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label for="estacionamiento">¿Deseas Bodega?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input classRadioBod" type="radio" onchange="despliegaBodega('A2');" name="radioBodegaA2" id="bodRadio1" value="1">
+                                                        <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input classRadioBod" type="radio" onchange="despliegaBodega('A2');" name="radioBodegaA2" id="bodRadio2" value="0" checked>
+                                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div id="divSelectBodA2" class="d-none">  
+                                                        <label for="bodega">Bodega: </label>
+                                                        <select data-bs-toggle="tooltip" title="Bodegas disponibles en el proyecto seleccionado." id="bodegaA2" class="form-select selectcito" name="nombre_proyecto">
+                                                            <option  value="0">Seleccione Bodega<option>
+                                                        <?php
+                                                                foreach(array_unique($bodegas) as $val) {
+                                                                    echo "<option value='".$val."'>".$val."</option>";
+                                                        }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                    <label for="nombre">Nombre y Apellido: </label>
+                                                    <input value="<?php echo isset($session_data[0]['nombre_cliente']) ? ucwords($session_data[0]['nombre_cliente']) : '';?>" maxlength="100" data-bs-toggle="tooltip" title="Por favor escribe tu Nombre y Apellido." onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)) || (event.charCode == 32) || (event.charCode == 209) || (event.charCode == 241)" id="nombre_completoA2" class="form-control nombreCotizante" name="nombre_proyecto">
+                                            </div>
+                                            <div class="col-md-6">
+                                                    <label class="control-label" for="inputEmail">RUT:</label>
+                                                    <input value="<?php echo isset($session_data[0]['rut_cliente']) ? $session_data[0]['rut_cliente'] : '';?>" maxlength="12" data-bs-toggle="tooltip" title="Por favor escribe tu Rut" id="rutA2" class="form-control rut" name="nombre_proyecto">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="email">E-mail: </label>
+                                                <input value="<?php echo isset($session_data[0]['email']) ? $session_data[0]['email'] : '';?>" type="email" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 64) || (event.charCode == 45) || (event.charCode == 95) || (event.charCode >= 46) || (event.charCode >= 241))" maxlength="100" data-bs-toggle="tooltip" title="Por favor escribe tu E-mail, por este medio nos contactaremos contigo." id="emailA2" class="form-control emailCotizante" name="nombre_proyecto">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="email">Teléfono: </label>
+                                                <input value="<?php echo isset($session_data[0]['telefono1']) ? $session_data[0]['telefono1'] : '';?>" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 43))" maxlength="12" data-bs-toggle="tooltip" title="Por favor escribe tu teléfono, por este medio nos contactaremos contigo." id="telefonoA2" class="form-control telefonoCotizante" name="nombre_proyecto" value="+569">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="inv-vi">¿Invertir o Vivir? </label>
+                                                <select data-bs-toggle="tooltip" title="Desear vivir o invertir con nuestros productos." id="invertir_vivirA2" class="form-select selectcito" name="nombre_proyecto">
+                                                    <option  value="1">Vivir</option>
+                                                    <option  value="2">Invertir</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="v-center d-grid gap-1 col-6 mx-auto">
+                                                <a href="#contenido" id="check_varsA2" class="btn btn-dark check_vars">Cotizar</a>
+                                            </div>
+                                        </div>
+                                        <!-- <a href="#contenido" id="check_varsA1"  class="btn btn-dark check_vars">Cotizar</a> -->
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- a2 1d + 2 b -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="btn" data-bs-toggle="collapse" href="#collapseB">
+                                        <b class="card-title">Tipología B</b>
+                                    </a>
+                                </div>
+                                <div id="collapseB" class="collapse" data-bs-parent="#accordion">
+                                    <div class="card-body">
+                        
+                                        <div id="select">
+                                            <?php 
+                                            foreach($decoded_json as $rkey => $resource) {
+                                                if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "B"){
+                                                $departamentosB[] = $resource["productos_id"]." | ".$resource["productos_nombre"]." | ".$resource["productos_tipo"]." | ".$resource["productos_cantidad_dormitorios"]."D + ".$resource["productos_cantidad_banios"]."B | UF ".$resource["productos_precio_lista"]." | ".$resource["productos_orientacion"];
+                                                }
+                                            }
+                                            ?>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <?php 
+                                                    foreach($decoded_json as $rkey => $resource) {
+                                                            if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "B"){
+                                                            echo "<img id='url_imgA1' class='img-fluid' width='100%' src='".$resource["productos_url_planta"]."'></img>";
+                                                            break;
+                                                        }
+                                                    }?>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="departamento">Departamentos:  </label>
+                                                    <select data-bs-toggle="tooltip" title="Departamentos disponibles en el proyecto seleccionado."  id="departamentoB" class="form-select selectcito" name="nombre_proyecto">
+                                                        <option value="0">Seleccione Departamento<option>
+                                                    <?php
+                                                            foreach(array_unique($departamentosB) as $val) {
+                                                                echo "<option value='".$val."'>".$val."</option>";
+                                                    }?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <hr>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label for="estacionamiento">¿Deseas Estacionamiento?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" onchange="despliegaEstacionamiento('B');" name="radioEstacionamientoB" id="estaRadio1" value="1">
+                                                        <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" onchange="despliegaEstacionamiento('B');" name="radioEstacionamientoB" id="estaRadio2" value="0" checked>
+                                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div id="divSelectEstB" class="d-none">   
+                                                        <label for="estacionamiento">Estacionamiento:  </label>
+                                                        <select data-bs-toggle="tooltip" title="Estacionamientos disponibles en el proyecto seleccionado." id="estacionamientoB" class="form-select selectcito" name="nombre_proyecto">
+                                                            <option value="0">Seleccione Estacionamiento<option>
+                                                            <?php
+                                                                    foreach(array_unique($estacionamientos) as $val) {
+                                                                        echo "<option value='".$val."'>".$val."</option>";
+                                                            }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label for="estacionamiento">¿Deseas Bodega?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input classRadioBod" type="radio" onchange="despliegaBodega('B');" name="radioBodegaB" id="bodRadio1" value="1">
+                                                        <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input classRadioBod" type="radio" onchange="despliegaBodega('B');" name="radioBodegaB" id="bodRadio2" value="0" checked>
+                                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div id="divSelectBodB" class="d-none">  
+                                                        <label for="bodega">Bodega: </label>
+                                                        <select data-bs-toggle="tooltip" title="Bodegas disponibles en el proyecto seleccionado." id="bodegaB" class="form-select selectcito" name="nombre_proyecto">
+                                                            <option  value="0">Seleccione Bodega<option>
+                                                        <?php
+                                                                foreach(array_unique($bodegas) as $val) {
+                                                                    echo "<option value='".$val."'>".$val."</option>";
+                                                        }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                    <label for="nombre">Nombre y Apellido: </label>
+                                                    <input value="<?php echo isset($session_data[0]['nombre_cliente']) ? ucwords($session_data[0]['nombre_cliente']) : '';?>" maxlength="100" data-bs-toggle="tooltip" title="Por favor escribe tu Nombre y Apellido." onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)) || (event.charCode == 32) || (event.charCode == 209) || (event.charCode == 241)" id="nombre_completoB" class="form-control nombreCotizante" name="nombre_proyecto">
+                                            </div>
+                                            <div class="col-md-6">
+                                                    <label class="control-label" for="inputEmail">RUT:</label>
+                                                    <input value="<?php echo isset($session_data[0]['rut_cliente']) ? $session_data[0]['rut_cliente'] : '';?>" maxlength="12" data-bs-toggle="tooltip" title="Por favor escribe tu Rut" id="rutB" class="form-control rut" name="nombre_proyecto">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="email">E-mail: </label>
+                                                <input value="<?php echo isset($session_data[0]['email']) ? $session_data[0]['email'] : '';?>" type="email" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 64) || (event.charCode == 45) || (event.charCode == 95) || (event.charCode >= 46) || (event.charCode >= 241))" maxlength="100" data-bs-toggle="tooltip" title="Por favor escribe tu E-mail, por este medio nos contactaremos contigo." id="emailB" class="form-control emailCotizante" name="nombre_proyecto">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="email">Teléfono: </label>
+                                                <input value="<?php echo isset($session_data[0]['telefono1']) ? $session_data[0]['telefono1'] : '';?>" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 43))" maxlength="12" data-bs-toggle="tooltip" title="Por favor escribe tu teléfono, por este medio nos contactaremos contigo." id="telefonoB" class="form-control telefonoCotizante" name="nombre_proyecto" value="+569">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="inv-vi">¿Invertir o Vivir? </label>
+                                                <select data-bs-toggle="tooltip" title="Desear vivir o invertir con nuestros productos." id="invertir_vivirB" class="form-select selectcito" name="nombre_proyecto">
+                                                    <option  value="1">Vivir</option>
+                                                    <option  value="2">Invertir</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="v-center d-grid gap-1 col-6 mx-auto">
+                                                <a href="#contenido" id="check_varsB0" class="btn btn-dark check_vars">Cotizar</a>
+                                            </div>
+                                        </div>
+                                        <!-- <a href="#contenido" id="check_varsA1"  class="btn btn-dark check_vars">Cotizar</a> -->
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                
+ 
+ 
+
+            </div>
+            
         </div>
 
     </div>
