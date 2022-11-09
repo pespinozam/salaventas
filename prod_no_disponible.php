@@ -1,5 +1,5 @@
 <?php
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
 require_once 'includes/db.php';
 require_once 'includes/uf_methods.php';
 require_once 'vendor/ti.php';
@@ -7,12 +7,6 @@ session_start();
 
 $varsesion = $_SESSION['rut'];
 
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/prod_no_disponible.php'){
-    $llave = false;
-}else{
-    $llave = true;
-}
 
 if($varsesion == null || $varsesion = ''){
     if($llave == true)
@@ -52,6 +46,15 @@ $uf_actual = valida_uf();
     <?php include 'includes/nav_admin.php';?>
 </header>
 <body style="background-color: white; font-family: Lato; margin-top: 100px;">
+<?php
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/prod_no_disponible.php'){
+    $llave = false;
+}else{
+    $llave = true;
+}
+?>
     <div class="container">
         <div class="row">
             <div class="col py-3 my-container" id="content">

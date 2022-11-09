@@ -5,13 +5,7 @@ require_once 'vendor/ti.php';
 session_start();
 
 $varsesion = $_SESSION['rut'];
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/Vreserva.php'){
-    $llave = false;
-}else{
-    $llave = true;
-}
+
 if($varsesion == null || $varsesion = ''){
     if($llave == true)
     {
@@ -65,6 +59,15 @@ if($varsesion == null || $varsesion = ''){
     <?php include 'includes/nav_admin.php';?>
 </header>
 <body style="background-color: white; font-family: Lato; margin-top: 100px;">
+<?php 
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/Vreserva.php'){
+    $llave = false;
+}else{
+    $llave = true;
+}
+?>
    <div class="container">
       <div class="row mt-4">
          <div class="col-12">

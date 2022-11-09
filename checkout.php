@@ -257,7 +257,7 @@ for ($i=0; $i < count($id_producto); $i++) {
                       <input type="hidden" name="correo" value="<?php echo $email; ?>">
                       <input type="hidden" name="telefono" value="<?php echo $telefono; ?>">
                       <input type="hidden" name="id_cotizacion" value="<?php echo $id_cotizacion;?>">
-                      <input type="" name="valor_propiedad" value="<?php echo number_format($total_propiedad_uf,1,',','.'); ?>">
+                      <input type="hidden" name="valor_propiedad" value="<?php echo number_format($total_propiedad_uf,1,',','.'); ?>">
                       <input type="hidden" name="valor_clp" value="<?php echo number_format($total_propiedad_clp,1,',','.'); ?>">
                       <input type="hidden" name="renta_sugerida" value="<?php echo number_format($renta_sugerida,1,',','.')?>">
                       <input type="hidden" name="div_final_uf" value="<?php echo number_format($dividendo_final,1,',','.');?>">

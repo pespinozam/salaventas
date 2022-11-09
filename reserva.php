@@ -1,11 +1,5 @@
 <?php 
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/reserva.php'){
-    $llave = false;
-}else{
-    $llave = true;
-}
+
 
 $depto = $_POST["depto"];
 $est = $_POST["est"];
@@ -54,6 +48,15 @@ $estacionamiento_values = explode("|",$est);
 
 </head>
 <body style="background-color: black; font-family: 'Lato', sans-serif;">
+<?php
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/reserva.php'){
+    $llave = false;
+}else{
+    $llave = true;
+}
+?>
 <br>
 <div style="background-color: white;" class="container">
 <div class="row">
