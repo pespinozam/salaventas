@@ -74,9 +74,10 @@ foreach ($decoded_json as $rkey => $resource){
 }
 
 foreach($decoded_json as $rkey => $resource) {
-    if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "B" && $resource['productos_cantidad_dormitorios'] == 2 ){
-      $departamentos[] = $resource["productos_id"]." | ".$resource["productos_nombre"]." | ".$resource["productos_tipo"]." | ".$resource["productos_cantidad_dormitorios"]."D + ".$resource["productos_cantidad_banios"]."B | UF ".$resource["productos_precio_lista"]." | ".$resource["productos_orientacion"];
-      var_dump($departamentos[0]);
+    if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "C" ){
+        // $departamentos[] = $resource["productos_id"]." | ".$resource["productos_nombre"]." | ".$resource["productos_tipo"]." | ".$resource["productos_cantidad_dormitorios"]."D + ".$resource["productos_cantidad_banios"]."B | UF ".$resource["productos_precio_lista"]." | ".$resource["productos_orientacion"];
+        $departamentos[] = $resource["productos_url_planta"];
+        // var_dump($departamentos[0]);
     }
 }
 
@@ -311,7 +312,8 @@ width:100%!important;
                                                     <?php 
                                                         foreach($decoded_json as $rkey => $resource) {
                                                             if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "A1"){
-                                                                echo "<img id='url_imgA1' class='img-fluid' width='100%' src='".$resource["productos_url_planta"]."'></img>";
+                                                                echo "<img id='url_imgA1' class='img-fluid' width='45%' src='".$resource["productos_url_planta"]."'></img>";
+                                                                // echo "<img id='url_imgA1' class='img-fluid' width='30%' src='https://www.surmonte.cl/wp-content/uploads/A1_page-0001.jpg'></img>";
                                                                 break;
                                                             }
                                                         }
@@ -452,7 +454,8 @@ width:100%!important;
                                                         <?php 
                                                             foreach($decoded_json as $rkey => $resource) {
                                                                 if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "A2"){
-                                                                    echo "<img id='url_imgA1' class='img-fluid' width='100%' src='".$resource["productos_url_planta"]."'></img>";
+                                                                    echo "<img id='url_imgA2' class='img-fluid' width='45%' src='".$resource["productos_url_planta"]."'></img>";
+                                                                    // echo "<img id='url_imgA2' class='img-fluid' width='40%' src='https://www.surmonte.cl/wp-content/uploads/A2_page-0001.jpg'></img>";
                                                                     break;
                                                                 }
                                                             }
@@ -592,7 +595,8 @@ width:100%!important;
                                                             <?php 
                                                                 foreach($decoded_json as $rkey => $resource) {
                                                                     if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "B"){
-                                                                        echo "<img id='url_imgA1' class='img-fluid' width='100%' src='".$resource["productos_url_planta"]."'></img>";
+                                                                        echo "<img id='url_imgB' class='img-fluid' width='45%' src='".$resource["productos_url_planta"]."'></img>";
+                                                                        // echo "<img id='url_imgB' class='img-fluid' width='40%' src='https://www.surmonte.cl/wp-content/uploads/B_page-0001.jpg'></img>";
                                                                         break;
                                                                     }
                                                                 }
@@ -755,7 +759,8 @@ width:100%!important;
                                                     <?php 
                                                         foreach($decoded_json as $rkey => $resource) {
                                                             if($resource["productos_tipo_unidad"] == "Departamento" && $resource["productos_tipo"] == "C"){
-                                                                echo "<img id='url_imgC' class='img-fluid' width='100%' src='".$resource["productos_url_planta"]."'></img>";
+                                                                echo "<img id='url_imgC' class='img-fluid' width='45%' src='".$resource["productos_url_planta"]."'></img>";
+                                                                // echo "<img id='url_imgC' class='img-fluid' width='40%' src='https://www.surmonte.cl/wp-content/uploads/C.jpg'></img>";
                                                                 break;
                                                             }
                                                         }
@@ -2176,7 +2181,7 @@ return new bootstrap.Tooltip(tooltipTriggerEl)
 
             //datos cliente
             var proyecto = $("#proyecto").text();
-            var url_imagen = $('#url_imgC3').attr('src');
+            var url_imagen = $('#url_imgC').attr('src');
 
             var id_producto = {
                 0 : values_depto[2]+"|"+depto_values[0],
