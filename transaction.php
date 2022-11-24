@@ -23,7 +23,9 @@ $uf_actual = valida_uf();
 / Apenas entramos esta página, con fines demostrativos,
 */
 if ($_GET['action'] === 'create') {
-
+    $commerceCode = "597042343492"; 
+    $apiKeySecret = "d00cd7b1b6216678aad75af0ddd74108";
+    $transaction = (new Transbank\Webpay\WebpayPlus\MallTransaction)->configureForProduction($commerceCode, $apiKeySecret);
     $proyecto = trim($_POST["proyecto"]);
     $id_cotizacion = $_POST["cotizacion"];
     $rut = $_POST["rut"];
@@ -43,18 +45,19 @@ if ($_GET['action'] === 'create') {
     $consulta->execute();
     
     $res = $consulta->fetch(PDO::FETCH_ASSOC);
-
+    var_dump($res);
     $transaction_details = [                                          
         [
-            "amount" => 1,
-            "commerce_code" => 597055555536,
+            "amount" => 150000,
+            
+            "commerce_code" => (int) $res['bc'],
             "buy_order" => $id_cotizacion."-".$proyecto
         ]
     ];
     
-    $url = "http://localhost/salaventas/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."";
-    echo $url;
-    $createResponse = (new MallTransaction)->create($id_cotizacion."-".$proyecto, uniqid(),"http://localhost/salaventas/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."", $transaction_details);
+    $url = "https://salaventas.surmonte.cl/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."";
+
+    $createResponse = $transaction->create($id_cotizacion."-".$proyecto, uniqid(),"https://salaventas.surmonte.cl/transaction.php?action=result&rut=".$rut_limpio."&id_cotizacion=".$id_cotizacion."&id_producto=".implode($id_prod)."&precios_producto=".implode($precios_prod)."&proyecto=".$proyecto."&nombre=".$nombre[0]."&telefono=".$telefono_limpio."&correo=".$correo."", $transaction_details);
     $token = $createResponse->getToken();
     $url = $createResponse->getUrl();
 
@@ -93,170 +96,176 @@ if ($_GET['action'] === 'result') {
         cancelOrder();
         exit();
     }
-    $valida_reserva = valida_reserva_cotizacion($_GET['id_cotizacion'] ?? $_GET['id_cotizacion'] ?? null);
-    if (!($valida_reserva)) {
     
-      // Acá ya estamos seguros de que tenemos un flujo de pago normal. Si no, habría "muerto" en los checks anteriores.
-      $token = $_GET['token_ws'] ?? $_GET['token_ws'] ?? null; // Obtener el token de un flujo normal
-      $response = (new MallTransaction)->commit($token);
-
-      $rut = $_GET['rut'] ?? $_GET['rut'] ?? null;
-      $nombre = $_GET['nombre'] ?? $_GET['nombre'] ?? null;
-      $telefono = $_GET['telefono'] ?? $_GET['telefono'] ?? null;
-      $correo = $_GET['correo'] ?? $_GET['correo'] ?? null;
-      $id_cotizacion = $_GET['id_cotizacion'] ?? $_GET['id_cotizacion'] ?? null;
-      $proyecto = $_GET['proyecto'] ?? $_GET['proyecto'] ?? null;
+    $commerceCode = "597042343492";
+    $apiKeySecret = "d00cd7b1b6216678aad75af0ddd74108";
+    $transaction = (new Transbank\Webpay\WebpayPlus\MallTransaction)->configureForProduction($commerceCode, $apiKeySecret);
+  
+    // Acá ya estamos seguros de que tenemos un flujo de pago normal. Si no, habría "muerto" en los checks anteriores.
+    $token = $_GET['token_ws'] ?? $_GET['token_ws'] ?? null; // Obtener el token de un flujo normal
+    $response = $transaction->commit($token);
       
-      $id_producto = $_GET['id_producto'] ?? $_GET['id_producto'] ?? null;
-      $precios_prod = $_GET['precios_producto'] ?? $_GET['precios_producto'] ?? null;
-      $curl = curl_init();
+    if ($response->isApproved()) {
+        //Si el pago está aprobado (responseCode == 0 && status === 'AUTHORIZED') entonces aprobamos nuestra compra
+        // Código para aprobar compra acá
+        $valida_reserva = valida_reserva_cotizacion($_GET['id_cotizacion'] ?? $_GET['id_cotizacion'] ?? null);
+        if (!($valida_reserva)) {
 
-      curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api.surmonte.cl/v1/reservas',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS =>'
-        {
-        "fecRes": "'.$hoy.'",
-        "idCot": "'.$id_cotizacion.'",
-        "rutCli": "'.$rut.'"
-        }',
-        CURLOPT_HTTPHEADER => array(
-          'Authorization: Basic YXBpc3VybW9udGU6QVBJMjAyMV9zbW50',
-          'Content-Type: application/json'
-        ),
-      ));
-
-      $res = curl_exec($curl);
-      curl_close($curl);
-      $json_response = json_decode($res, true);
-      $id_reserva = $json_response["idReserva"];
-      $productos = explode(" ", trim($id_producto) );
-      $precios = trim(str_replace('UF', '', $precios_prod));
-      $precios_clean = array_diff(explode(" ", $precios), array(""));
-    
-      $precios_finally = array();
-      foreach ($precios_clean as $pre) {
-        array_push($precios_finally, $pre);
-      }
-      $count_productos = count($productos);
-      $count_precios = count($precios_finally); 
-
-      if($count_productos == $count_precios)
-      {
-
-        for ($i=0; $i < $count_productos; $i++) { 
+          $rut = $_GET['rut'] ?? $_GET['rut'] ?? null;
+          $nombre = $_GET['nombre'] ?? $_GET['nombre'] ?? null;
+          $telefono = $_GET['telefono'] ?? $_GET['telefono'] ?? null;
+          $correo = $_GET['correo'] ?? $_GET['correo'] ?? null;
+          $id_cotizacion = $_GET['id_cotizacion'] ?? $_GET['id_cotizacion'] ?? null;
+          $proyecto = $_GET['proyecto'] ?? $_GET['proyecto'] ?? null;
           
-          $curl = curl_init();
-          //Cliente post
-          $post1 = [
-            "idCotizacion" => $id_cotizacion,
-            "idProducto" => $productos[$i],
-            "proyecto" => $proyecto,
-            "precio" => $precios_finally[$i],
-            "precioD" => 0
-          ];
-
-          $login = 'apisurmonte';
-          $password = 'API2021_smnt';
-
-          $ch = curl_init('https://api.surmonte.cl/v1/reservas/'.$id_reserva.'/detalle');
-          curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-          curl_setopt($ch, CURLOPT_USERPWD, "$login:$password");
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post1));
-      
-          $res = curl_exec($ch);
-          curl_close($ch);
-        }
-
+          $id_producto = $_GET['id_producto'] ?? $_GET['id_producto'] ?? null;
+          $precios_prod = $_GET['precios_producto'] ?? $_GET['precios_producto'] ?? null;
           $curl = curl_init();
 
           curl_setopt_array($curl, array(
-          CURLOPT_URL => 'https://api.surmonte.cl/v1/pagos',
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => '',
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 0,
-          CURLOPT_FOLLOWLOCATION => true,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => 'POST',
-          CURLOPT_POSTFIELDS =>'
+            CURLOPT_URL => 'https://api.surmonte.cl/v1/reservas',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS =>'
+            {
+            "fecRes": "'.$hoy.'",
+            "idCot": "'.$id_cotizacion.'",
+            "rutCli": "'.$rut.'"
+            }',
+            CURLOPT_HTTPHEADER => array(
+              'Authorization: Basic YXBpc3VybW9udGU6QVBJMjAyMV9zbW50',
+              'Content-Type: application/json'
+            ),
+          ));
+
+          $res = curl_exec($curl);
+          curl_close($curl);
+          $json_response = json_decode($res, true);
+          $id_reserva = $json_response["idReserva"];
+          $productos = explode(" ", trim($id_producto) );
+          $precios = trim(str_replace('UF', '', $precios_prod));
+          $precios_clean = array_diff(explode(" ", $precios), array(""));
+        
+          $precios_finally = array();
+          foreach ($precios_clean as $pre) {
+            array_push($precios_finally, $pre);
+          }
+          $count_productos = count($productos);
+          $count_precios = count($precios_finally); 
+
+          if($count_productos == $count_precios)
           {
-            "origenPago": "reserva",
-            "productoId": "'.$productos[0].'",
-            "monto": 150000,
-            "idOrigen": '.$id_reserva.',
-            "montoUf": '.$uf_actual.',
-            "fechaPago": "'.$hoy.'",
-            "numTransf": 123456
-          }',
-          CURLOPT_HTTPHEADER => array(
-            'Authorization: Basic YXBpc3VybW9udGU6QVBJMjAyMV9zbW50',
-            'Content-Type: application/json'
-          ),
-        ));
-    
-        $res = curl_exec($curl);
-        curl_close($curl);
 
-        $mj = new Mailjet\Client('13246da25960b191db9548ab13e1a009', '3c19ab25a305c1410200b759dede4015',true,['version' => 'v3.1']);
-        $body = [
-          'Messages' => [
-            [
-              'From' => [
-                'Email' => "contacto@surmonte.cl",
-                'Name' => "Surmonte Area Clientes"
-              ],
-              'To' => [
+            for ($i=0; $i < $count_productos; $i++) { 
+              
+              $curl = curl_init();
+              //Cliente post
+              $post1 = [
+                "idCotizacion" => $id_cotizacion,
+                "idProducto" => $productos[$i],
+                "proyecto" => $proyecto,
+                "precio" => $precios_finally[$i],
+                "precioD" => 0
+              ];
+
+              $login = 'apisurmonte';
+              $password = 'API2021_smnt';
+
+              $ch = curl_init('https://api.surmonte.cl/v1/reservas/'.$id_reserva.'/detalle');
+              curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+              curl_setopt($ch, CURLOPT_USERPWD, "$login:$password");
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+              curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post1));
+          
+              $res = curl_exec($ch);
+              curl_close($ch);
+            }
+
+              $curl = curl_init();
+
+              curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://api.surmonte.cl/v1/pagos',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_POSTFIELDS =>'
+              {
+                "origenPago": "reserva",
+                "productoId": "'.$productos[0].'",
+                "monto": 150000,
+                "idOrigen": '.$id_reserva.',
+                "montoUf": '.$uf_actual.',
+                "fechaPago": "'.$hoy.'",
+                "numTransf": 123456
+              }',
+              CURLOPT_HTTPHEADER => array(
+                'Authorization: Basic YXBpc3VybW9udGU6QVBJMjAyMV9zbW50',
+                'Content-Type: application/json'
+              ),
+            ));
+        
+            $res = curl_exec($curl);
+            curl_close($curl);
+
+            $mj = new Mailjet\Client('13246da25960b191db9548ab13e1a009', '3c19ab25a305c1410200b759dede4015',true,['version' => 'v3.1']);
+            $body = [
+              'Messages' => [
                 [
-                  'Email' => $correo,
-                  'Name' => $nombre
-                ],
-                [
-                  'Email' => "jramirez@surmonte.cl",
-                  'Name' => "Javier Ramirez"
-                ],
-              ],
-              'TemplateID' => 4195355,
-              'TemplateLanguage' => true,
-              'Subject' => "[CLIENTE SURMONTE] Reserva N°".$id_reserva,
-              'Variables' => json_decode('{
-              "nombre_completo": "'.$nombre.'",
-              "id_reserva": "'.$id_reserva.'",
-              "email": "'.$correo.'",
-              "telefono": "'.$telefono.'"
-              }', true)
-            ]
-          ]
-        ];
-      
-        $r = $mj->post(Resources::$Email, ['body' => $body]);
-        $r->success();
+                  'From' => [
+                    'Email' => "contacto@surmonte.cl",
+                    'Name' => "Surmonte Area Clientes"
+                  ],
+                  'To' => [
+                    [
+                      'Email' => $correo,
+                      'Name' => $nombre
+                    ],
+                    [
+                      'Email' => "jramirez@surmonte.cl",
+                      'Name' => "Javier Ramirez"
+                    ],
+                  ],
+                  'TemplateID' => 4195355,
+                  'TemplateLanguage' => true,
+                  'Subject' => "[CLIENTE SURMONTE] Reserva N°".$id_reserva,
+                  'Variables' => json_decode('{
+                  "nombre_completo": "'.$nombre.'",
+                  "id_reserva": "'.$id_reserva.'",
+                  "email": "'.$correo.'",
+                  "telefono": "'.$telefono.'"
+                  }', true)
+                ]
+              ]
+            ];
+          
+            $r = $mj->post(Resources::$Email, ['body' => $body]);
+            $r->success();
 
-      }
+          }
+        }else{
+          header('Location: index.php');
+        }
+        
+        approveOrder($response);
 
-      if ($response->isApproved()) {
-          //Si el pago está aprobado (responseCode == 0 && status === 'AUTHORIZED') entonces aprobamos nuestra compra
-          // Código para aprobar compra acá
-          approveOrder($response);
+        // $mpdf = new \Mpdf\Mpdf();
+        // $mpdf->WriteHTML(approveOrder($response));
+        // $mpdf->Output("Comprobante.pdf","D");
+  
+    } else {
 
-          // $mpdf = new \Mpdf\Mpdf();
-          // $mpdf->WriteHTML(approveOrder($response));
-          // $mpdf->Output("Comprobante.pdf","D");
-    
-      } else {
-
-          cancelOrder();
-      }
-    }else{
-      header('Location: index.php');
+        cancelOrder();
     }
+    
     return;
 }
 
@@ -272,10 +281,12 @@ function cancelOrder($response = null)
     <head>
     <title>Reserva - Rechazada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="shB284-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     </head>
-    <body style="background-color: black;">
+    <body style="background-color: black; font-family: "Lato", sans-serif;" >
     <br>
     <div style="background-color: white; border-radius: 10px; padding: 40px;" class="container">
     <div class="row">
@@ -348,7 +359,7 @@ $html = '<!DOCTYPE html>
   <div class="row">
   
     <div class="col-md-12">
-    <center><h1>¡Gracias por reservar tu <strong> Surmonte</strong></h1></center>
+    <center><h1>¡Gracias por reservar tu <strong> Surmonte</strong>!</h1></center>
     <br>
     <div class="col-md-12">
   <center><img width="100" src="assets/aprobado.png"></img></center>
@@ -425,8 +436,8 @@ $html = '<!DOCTYPE html>
       }
       $html .= '
       <br><a href="https://surmonte.cl" class="btn btn-dark btn-lg pd-1 pt-1 m-1">Ir a surmonte.cl</a>
-      <br><a href="http://localhost/salaventas/" class="btn btn-dark btn-lg pd-1 pt-1 m-1">Ir a salaventas.cl</a>
-      <br><a href="http://localhost/salaventas/home.php" class="btn btn-dark btn-lg pd-1 pt-1 m-1">Ir a portalclientes.cl</a>
+      <br><a href="https://salaventas.surmonte.cl/" class="btn btn-dark btn-lg pd-1 pt-1 m-1">Ir a flujocompra.cl</a>
+      <br><a href="https://salaventas.surmonte.cl/home.php" class="btn btn-dark btn-lg pd-1 pt-1 m-1">Ir a portalclientes.cl</a>
       <br><br><button type="submit" class="btn btn-dark btn-lg">Descarga comprobante</button>
       </form>
       <div class="row">
