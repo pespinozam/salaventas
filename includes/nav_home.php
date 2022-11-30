@@ -1,15 +1,4 @@
 
-<?php
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/nav_home.php'){
-    $llave = false;
-}else{
-    $llave = true;
-}
-
-?>
 
 <nav>
     <div class="navbar">
@@ -67,27 +56,15 @@ if($enlace_actual == 'http://localhost/salaventas/nav_home.php'){
               ?>
             
             <?php
-                if($llave == true){
-                  if(isset($_SESSION["rut"])){
-                    echo '<i id="iconPerfil" class="bx bxs-chevron-down js-arrow arrow"></i>
-                    <ul class="js-sub-menu sub-menu" style="padding-left: 0px;">
-                    <li><a id="a-perfil" href="home.php"><i class="fa-solid fa-house" style="margin-right: 10px;"></i>Mi portal</a></li>
-                    <li><a href="index.php"><i class="fa-solid fa-building" style="margin-right: 10px;"></i>Proyectos</a></li>
-                    <li><a id="a-perfil" href="https://salaventas.surmonte.cl/perfil.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Mi perfil</a></li>
-                    <li><a href="../cerrar_sesion.php"><i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i>Cerrar Sesión</a></li>
-                  </ul>';
-                  }
-                }else{
-                  if(isset($_SESSION["rut"])){
-                    echo '<i id="iconPerfil" class="bx bxs-chevron-down js-arrow arrow"></i>
-                    <ul class="js-sub-menu sub-menu" style="padding-left: 0px;">
-                    <li><a id="a-perfil" href="home.php"><i class="fa-solid fa-house" style="margin-right: 10px;"></i>Mi portal</a></li>
-                    <li><a href="index.php"><i class="fa-solid fa-building" style="margin-right: 10px;"></i>Proyectos</a></li>
-                    <li><a id="a-perfil" href="https://localhost/salaventas/perfil.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Mi perfil</a></li>
-                    <li><a href="../cerrar_sesion.php"><i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i>Cerrar Sesión</a></li>
-                  </ul>';
-                  }
-                }
+              if(isset($_SESSION["rut"])){
+                echo '<i id="iconPerfil" class="bx bxs-chevron-down js-arrow arrow"></i>
+                <ul class="js-sub-menu sub-menu" style="padding-left: 0px;">
+                <li><a id="a-perfil" href="home.php"><i class="fa-solid fa-house" style="margin-right: 10px;"></i>Mi portal</a></li>
+                <li><a href="index.php"><i class="fa-solid fa-building" style="margin-right: 10px;"></i>Proyectos</a></li>
+                <li><a id="a-perfil" href="https://salaventas.surmonte.cl/perfil.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Mi perfil</a></li>
+                <li><a href="../cerrar_sesion.php"><i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i>Cerrar Sesión</a></li>
+                </ul>';
+              }
             ?>
 
           </li>
