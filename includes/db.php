@@ -16,7 +16,11 @@ Class DB{
         $this->password = "m029ncqryseg";
         $this->dbname = "dbr1g1gpshoxbb";
         $this->charset = "utf8";
- 
+        // $this->servername = "localhost";
+        // $this->username = "root";
+        // $this->password = "";
+        // $this->dbname = "portalclientes";
+        // $this->charset = "utf8";
         try {
             //Data Source Name
             $dsn = "mysql:host=".$this->servername.";dbname=".$this->dbname.";charset=".$this->charset;

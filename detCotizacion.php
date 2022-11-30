@@ -1,5 +1,7 @@
 <?php
 
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
 require_once 'includes/db.php';
 require_once 'vendor/ti.php';
 session_start();
@@ -7,7 +9,8 @@ session_start();
 $varsesion = $_SESSION['rut'];
 
 if($varsesion == null || $varsesion = ''){
-    header("Location: http://localhost/flujocompra/login.php");
+    header("Location: https://salaventas.surmonte.cl/index.php");
+    
     die();
 }
 
@@ -55,6 +58,15 @@ $nom_cli = $_GET['nom'];
     <?php include 'includes/nav_admin.php';?>
 </header>
 <body style="background-color: white; font-family: Lato; margin-top: 100px;">
+    <?php 
+    $enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $llave = false;
+    if($enlace_actual == 'http://localhost/salaventas/detCotizacion.php' ){
+        $llave = false;
+    }else{
+        $llave = true;
+    }
+    ?>
     <div class="container">
         <div class="container-fluid">
 
@@ -66,7 +78,13 @@ $nom_cli = $_GET['nom'];
          
       </div>
       <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
-         <a href="http://localhost/flujocompra/index.php" type="button" id="btnMinimizar" style = "background-color: rgb(255 151 53); color: white;" data-card-widget="collapse" class="btn p-1 m-1" style="">
+        <?php 
+            if($llave == true){
+                echo '<a href="https://salaventas.surmonte.cl/index.php" type="button" id="btnMinimizar" style = "background-color: rgb(255 151 53); color: white;" data-card-widget="collapse" class="btn p-1 m-1" style="">';
+            }else{
+                echo '<a href="http://localhost/salaventas/index.php" type="button" id="btnMinimizar" style = "background-color: rgb(255 151 53); color: white;" data-card-widget="collapse" class="btn p-1 m-1" style="">';
+            }
+        ?>
          Nueva cotización</a>
       </div>
    </div>
@@ -148,7 +166,15 @@ $nom_cli = $_GET['nom'];
                                             <input type="hidden" id="priceTal" name="priceTal" value="">
     
                                             <button type="submit" style='background-color: rgb(255 151 53); color: white;' class="btn">Descargar cotización</button>
-                                            <a type='button' href="https://salaventas.surmonte.cl/Vcotizaciones.php" style='padding: 3px; margin: 3px; background-color: rgb(255 151 53); color: white;' class='btn'>Volver</a>
+                                            <?php 
+                                                if($llave == true){
+                                                    echo '<a type="button" href="https://salaventas.surmonte.cl/Vcotizaciones.php" style="padding: 3px; margin: 3px; background-color: rgb(255 151 53); color: white;" class="btn">Volver</a>';
+                                                }else{
+                                                    echo '<a type="button" href="http://localhost/salaventas/Vcotizaciones.php" style="padding: 3px; margin: 3px; background-color: rgb(255 151 53); color: white;" class="btn">Volver</a>';
+                                                }
+                                            ?>
+                                            
+                                            
                                             <!-- <a href="../email.php" role="button" class="btn btn-light check_vars">Enviar mail </a> -->
                                         </form>
                                         </div>

@@ -45,7 +45,7 @@ if ($_GET['action'] === 'create') {
     $consulta->execute();
     
     $res = $consulta->fetch(PDO::FETCH_ASSOC);
-
+    var_dump($res);
     $transaction_details = [                                          
         [
             "amount" => 150000,

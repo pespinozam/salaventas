@@ -1,5 +1,6 @@
 <?php 
 
+
 $depto = $_POST["depto"];
 $est = $_POST["est"];
 $bod = $_POST["bod"];
@@ -47,6 +48,15 @@ $estacionamiento_values = explode("|",$est);
 
 </head>
 <body style="background-color: black; font-family: 'Lato', sans-serif;">
+<?php
+  $enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+  $llave = false;
+  if($enlace_actual == 'http://localhost/salaventas/reserva.php'){
+      $llave = false;
+  }else{
+      $llave = true;
+  }
+?>
 <br>
 <div style="background-color: white;" class="container">
 <div class="row">
@@ -88,7 +98,14 @@ $estacionamiento_values = explode("|",$est);
                   <h2 class="text" style="color: rgb(255 151 53)"><?php echo "Precio total:  UF".number_format($total_uf,1,",",".")." <small>(**)</small>"?></h2>
                   <h2 class="text" style="color: rgb(255 151 53)"><?php echo "Pago reserva: $150.000 <small>(***)</small>"; ?></h2>
                   <hr>
-                  <form method="post" action="https://salaventas.surmonte.cl/transaction.php?action=create">
+                  <?php 
+                    if($llave == true){
+                        echo '<form method="post" action="https://salaventas.surmonte.cl/transaction.php?action=create">';
+                    }else{
+                        echo '<form method="post" action="http://localhost/salaventas/transaction.php?action=create">';
+                    }
+                  ?>
+                  <!-- <form method="post" action="https://salaventas.surmonte.cl/transaction.php?action=create"> -->
                   <div class="d-grid">
                     <input type="hidden" name="cotizacion" value="<?php echo $id_cotizacion; ?>" >
                     <input type="hidden" name="proyecto" value="<?php echo $proyecto; ?>" >

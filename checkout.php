@@ -82,21 +82,47 @@ $hoy = date("Y-m-d H:i:s");
 
 $authorization_token = "c688517e5411dbfb40d035d129c968dd071b227f";
 //Cliente post Pipedrive
+// $post2 = [
+//   "title" => $proyecto."-".$email."-".$telefono,
+//   "value" => $nombre_completo,
+//   "currency" =>"CLP",
+//   "user_id" => "",
+//   "person_id" => "",
+//   "org_id" => 5,
+//   "pipeline_id" => 16,
+//   "stage_id" => 96,
+//   "status" => "open",
+//   "expected_close_date" => "",
+//   "probability" => "",
+//   "lost_reason" => "",
+//   "visible_to" => "3",
+//   "add_time" => $hoy
+// ];
+
+
+$project_pipe = 16;
+$project_status = 96;
+
 $post2 = [
   "title" => $proyecto."-".$email."-".$telefono,
   "value" => $nombre_completo,
   "currency" =>"CLP",
   "user_id" => "",
   "person_id" => "",
-  "org_id" => 5,
-  "pipeline_id" => 16,
-  "stage_id" => 96,
+  "dfe9ae38b9a93c369148bd30a2c969ebd8a059f1" => $proyecto,
+  "org_id" => $proyecto,
+  "a053abef1b4aebceb9bb17de7d789fd9a5bf9b9f" => 'E-COMMERCE',
+  "pipeline_id" => $project_pipe,
+  "stage_id" => $project_status,
   "status" => "open",
   "expected_close_date" => "",
   "probability" => "",
   "lost_reason" => "",
   "visible_to" => "3",
-  "add_time" => $hoy
+  "add_time" => $hoy,
+  "c993dded94c0982d52b9a140717b8a12fbe3ec72-add" => $proyecto,
+  "ff3ab516bad04448ceb525b90cd45ec3cfcdceca" => $email,
+  "47434ac3577a44c41cbd4650b0185620f0b45310" => $telefono
 ];
 
 $ch = curl_init('https://api.pipedrive.com/v1/deals?api_token='.$authorization_token);
@@ -148,6 +174,7 @@ $post2 = [
   "valorDescuentos" => 0,
   "valorVenta" => 0
 ];
+
 
 $ch = curl_init('https://api.surmonte.cl/v1/cotizaciones/');
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -257,7 +284,7 @@ for ($i=0; $i < count($id_producto); $i++) {
                       <input type="hidden" name="correo" value="<?php echo $email; ?>">
                       <input type="hidden" name="telefono" value="<?php echo $telefono; ?>">
                       <input type="hidden" name="id_cotizacion" value="<?php echo $id_cotizacion;?>">
-                      <input type="" name="valor_propiedad" value="<?php echo number_format($total_propiedad_uf,1,',','.'); ?>">
+                      <input type="hidden" name="valor_propiedad" value="<?php echo number_format($total_propiedad_uf,1,',','.'); ?>">
                       <input type="hidden" name="valor_clp" value="<?php echo number_format($total_propiedad_clp,1,',','.'); ?>">
                       <input type="hidden" name="renta_sugerida" value="<?php echo number_format($renta_sugerida,1,',','.')?>">
                       <input type="hidden" name="div_final_uf" value="<?php echo number_format($dividendo_final,1,',','.');?>">

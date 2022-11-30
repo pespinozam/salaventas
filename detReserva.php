@@ -5,12 +5,25 @@
 <?php  
 $uf_actual = valida_uf();
 $ct = $_GET['cot']; 
+
 ?>
 
 <?php startblock('content') ?>
 
 
 <div class="container-fluid">
+    <?php
+    $llave = false;
+    $enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    
+    if($enlace_actual == 'http://localhost/salaventas/detReserva.php'){
+        $llave = false;
+    }else{
+        // header("Location: https://salaventas.surmonte.cl/index.php");
+        $llave = true;
+    }
+     ?>
+
     <div class="row mx-5 mt-5">
         <h3>Detalle Reserva</h3>
         <hr class="">
@@ -96,7 +109,14 @@ $ct = $_GET['cot'];
                                             <input type="hidden" id="priceTal" name="priceTal" value="">
     
                                             <button type="submit" style='background-color: rgb(255 151 53); color: white;' class='form btn mb-4'>Descargar reserva</button>
-                                            <a type='button' href="https://salaventas.surmonte.cl/Vreserva.php" style='padding: 3px; margin: 3px; background-color: rgb(255 151 53); color: white;' class='btn'>Volver</a>
+                                            <?php 
+                                                if($llave == true){
+                                                    echo '<a type="button" href="https://salaventas.surmonte.cl/Vreserva.php" style="padding: 3px; margin: 3px; background-color: rgb(255 151 53); color: white;" class="btn">Volver</a>';
+                                                }else{
+                                                    echo '<a href="http://localhost/salaventas/Vreserva.php" type="button" id="btnMinimizar" style = "background-color: rgb(255 151 53); color: white;" data-card-widget="collapse"  class="btn">Volver</a>';
+                                                }
+                                            ?>
+                                            
                                             <!-- <a href="../email.php" role="button" class="btn btn-light check_vars">Enviar mail </a> -->
                                         </form>
                                         </div>

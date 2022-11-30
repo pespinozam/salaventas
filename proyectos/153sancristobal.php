@@ -3,6 +3,7 @@ require_once '../includes/session_data.php';
 require_once '../includes/uf_methods.php';
 session_start();
 
+ 
 
 $link = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $escaped_link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
@@ -158,6 +159,15 @@ width:100%!important;
 </header>
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50" style="background-color: white; font-family: Lato; margin-top: 100px;">
 
+<?php
+$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+$llave = false;
+if($enlace_actual == 'http://localhost/salaventas/proyectos/153sancristobal.php'){
+    $llave = false;
+}else{
+    $llave = true;
+}?>
 
 <span style="display: none;" id="proyecto">153SANCRISTOBAL</span>
 
@@ -1203,10 +1213,23 @@ $(document).ready(function(){
             imageWidth: 140,
             imageHeight: 30,
             imageAlt: 'Logo surmonte',
+            <?php 
+            if($llave == true){
+                ?>
+                html: '<h5>¡Hola! Si quieres tener una experiencia mas rápida.</h5>'+
+                '<form method="POST" action="https://salaventas.surmonte.cl/login.php" target="_blank"> '+
+                '<input type="hidden" name="linkred" value="<?php echo ($escaped_link); ?>">'+
+                '<a><button type="submit" style="background-color: transparent; color: blue" class="btn btn-light check_vars">¡Inicia sesión aquí!</button></a></form>',
+                <?php
+            }else{ ?> 
             html: '<h5>¡Hola! Si quieres tener una experiencia mas rápida.</h5>'+
-            '<form method="POST" action="https://salaventas.surmonte.cl/login.php" target="_blank"> '+
+            '<form method="POST" action="http://localhost/salaventas/login.php" target="_blank"> '+
             '<input type="hidden" name="linkred" value="<?php echo ($escaped_link); ?>">'+
             '<a><button type="submit" style="background-color: transparent; color: blue" class="btn btn-light check_vars">¡Inicia sesión aquí!</button></a></form>',
+            <?php
+            }?>
+            
+            
             // '<a href="http://localhost/flujocompra/login.php">¡Inicia sesión aquí!</a> ',
             showCloseButton: true,
             focusConfirm: false,
