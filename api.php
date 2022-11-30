@@ -5,7 +5,6 @@
  // echo $fecha."<br>";
  $key = "s/zd_JF_O^sUVsRWjsP4";
 
-//  $fecha = date("Y-m-d");
  $fecha = date("Y-m-d");
  $iltro = 2;
 
@@ -82,31 +81,29 @@ foreach ($array_api as $value){
         "currency" =>"CLP",
         "user_id" => "",
         "person_id" => "",
-        "dfe9ae38b9a93c369148bd30a2c969ebd8a059f1" => $proyecto,
-        "org_id" => $proyecto,
+        "dfe9ae38b9a93c369148bd30a2c969ebd8a059f1" => strtoupper(trim($proyecto)),
+        "org_id" => strtoupper(trim($proyecto)),
         "a053abef1b4aebceb9bb17de7d789fd9a5bf9b9f" => $fuente,
-        "pipeline_id" => $ArrayProjects[$proyecto],
-        "stage_id" => $ArrayStatus[$proyecto],
+        "pipeline_id" => $ArrayProjects[strtoupper(trim($proyecto))],
+        "stage_id" => $ArrayStatus[strtoupper(trim($proyecto))],
         "status" => "open",
         "expected_close_date" => "",
         "probability" => "",
         "lost_reason" => "",
         "visible_to" => "3",
         "add_time" => $hoy,
-        "c993dded94c0982d52b9a140717b8a12fbe3ec72-add" => $proyecto,
+        "c993dded94c0982d52b9a140717b8a12fbe3ec72-add" => strtoupper(trim($proyecto)),
         "ff3ab516bad04448ceb525b90cd45ec3cfcdceca" => $mail,
         "47434ac3577a44c41cbd4650b0185620f0b45310" => $telefonoCliente
     ];
 
-    
+    $chAPI = curl_init('https://api.pipedrive.com/v1/deals?api_token='.$authorization_token);
+    // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($chAPI, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($chAPI, CURLOPT_POSTFIELDS, http_build_query($post2));
 
-     $chAPI = curl_init('https://api.pipedrive.com/v1/deals?api_token='.$authorization_token);
-     // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-     curl_setopt($chAPI, CURLOPT_RETURNTRANSFER, true);
-     curl_setopt($chAPI, CURLOPT_POSTFIELDS, http_build_query($post2));
-    
-     $result = curl_exec($chAPI);
-     curl_close($chAPI);
-     echo $result;
+    $result = curl_exec($chAPI);
+    curl_close($chAPI);
+    echo $result;
 
 }

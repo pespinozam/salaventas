@@ -48,7 +48,7 @@ if ($_GET['action'] === 'create') {
 
     $transaction_details = [                                          
         [
-            "amount" => 500,
+            "amount" => 150000,
             
             "commerce_code" => (int) $res['bc'],
             "buy_order" => $id_cotizacion."-".$proyecto
