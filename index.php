@@ -22,15 +22,6 @@ session_start();
     <?php include 'includes/nav_home.php';?>
 </header>
 <body style="background-color: white; font-family: Lato; margin-top: 100px;">
-<?php 
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaventas/index.php' ){
-    $llave = false;
-}else{
-    $llave = true;
-}
-?>
 <!-- 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container-fluid">
@@ -59,11 +50,7 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
         <div class="card">
             <div class="card-body">
               <?php 
-                  if($llave == true){
-                      echo '<a href="https://salaventas.surmonte.cl/proyectos/24crisostomo.php"><img style="width: 100%;" src="assets/proyectos/24CRISOSTOMO.PNG"></a>';
-                  }else{
-                      echo '<a href="http://localhost/salaventas/proyectos/24crisostomo.php"><img style="width: 100%;" src="assets/proyectos/24CRISOSTOMO.PNG"></a>';
-                  }
+                    echo '<a href="https://salaventas.surmonte.cl/proyectos/24crisostomo.php"><img style="width: 100%;" src="assets/proyectos/24CRISOSTOMO.PNG"></a>';
               ?>
               
             </div>
@@ -73,11 +60,8 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
     <div class="card">
             <div class="card-body">
               <?php 
-                  if($llave == true){
-                      echo '<a href="https://salaventas.surmonte.cl/proyectos/42linares.php"><img style="width: 100%;"  src="assets/proyectos/42LINARES.PNG"></a>';
-                  }else{
-                      echo '<a href="http://localhost/salaventas/proyectos/42linares.php"><img style="width: 100%;" src="assets/proyectos/42LINARES.PNG"></a>';
-                  }
+                  echo '<a href="https://salaventas.surmonte.cl/proyectos/42linares.php"><img style="width: 100%;"  src="assets/proyectos/42LINARES.PNG"></a>';
+                  
               ?>
             
             </div>
@@ -98,11 +82,8 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
         <div class="card">
             <div class="card-body">
               <?php 
-                  if($llave == true){
-                      echo '<a href="https://salaventas.surmonte.cl/proyectos/252marathon.php"><img style="width: 100%;" src="assets/proyectos/252MARATHON.PNG"></a>';
-                  }else{
-                      echo '<a href="http://localhost/salaventas/proyectos/252marathon.php"><img style="width: 100%;" src="assets/proyectos/252MARATHON.PNG"></a>';
-                  }
+                  echo '<a href="https://salaventas.surmonte.cl/proyectos/252marathon.php"><img style="width: 100%;" src="assets/proyectos/252MARATHON.PNG"></a>';
+                  
               ?>
               
             </div>
@@ -112,11 +93,8 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
     <div class="card">
             <div class="card-body">
               <?php 
-                  if($llave == true){
-                      echo '<a href="https://salaventas.surmonte.cl/proyectos/ecv103.php"><img style="width: 100%;" src="assets/proyectos/ECV103.PNG"></a>';
-                  }else{
-                      echo '<a href="http://localhost/salaventas/proyectos/ecv103.php"><img style="width: 100%;" src="assets/proyectos/ECV103.PNG"></a>';
-                  }
+                  echo '<a href="https://salaventas.surmonte.cl/proyectos/ecv103.php"><img style="width: 100%;" src="assets/proyectos/ECV103.PNG"></a>';
+                  
               ?>
             
             </div>
@@ -126,11 +104,8 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
     <div class="card">
             <div class="card-body">
               <?php 
-                  if($llave == true){
-                      echo '<a href="https://salaventas.surmonte.cl/proyectos/talaveras72.php"><img style="width: 100%;" src="assets/proyectos/TALAVERAS72.PNG"></a>';
-                  }else{
-                      echo '<a href="http://localhost/salaventas/proyectos/talaveras72.php"><img style="width: 100%;" src="assets/proyectos/TALAVERAS72.PNG"></a>';
-                  }
+                  echo '<a href="https://salaventas.surmonte.cl/proyectos/talaveras72.php"><img style="width: 100%;" src="assets/proyectos/TALAVERAS72.PNG"></a>';
+                  
               ?>
             
             </div>
@@ -150,11 +125,8 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
         <div class="card">
             <div class="card-body">
               <?php 
-                  if($llave == true){
-                      echo '<a href="https://salaventas.surmonte.cl/proyectos/131wood.php"><img  style="width: 100%;" src="assets/proyectos/131WOOD.PNG"></a>';
-                  }else{
-                      echo '<a href="http://localhost/salaventas/proyectos/131wood.php"><img style="width: 100%;" src="assets/proyectos/131WOOD.PNG"></a>';
-                  }
+                  echo '<a href="https://salaventas.surmonte.cl/proyectos/131wood.php"><img  style="width: 100%;" src="assets/proyectos/131WOOD.PNG"></a>';
+                  
               ?>
             
             </div>
@@ -165,11 +137,8 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
             <div class="card-body">
               <!-- 273santiago -->
               <?php 
-                  if($llave == true){
-                      echo '<a href="https://salaventas.surmonte.cl/proyectos/273santiago.php"><img  style="width: 100%;" src="assets/proyectos/273santiago.PNG"></a>';
-                  }else{
-                      echo '<a href="http://localhost/salaventas/proyectos/273santiago.php"><img style="width: 100%;" src="assets/proyectos/273santiago.PNG"></a>';
-                  }
+                  echo '<a href="https://salaventas.surmonte.cl/proyectos/273santiago.php"><img  style="width: 100%;" src="assets/proyectos/273santiago.PNG"></a>';
+                  
               ?>
             
             </div>
@@ -190,11 +159,8 @@ if($enlace_actual == 'http://localhost/salaventas/' || 'http://localhost/salaven
         <div class="card">
             <div class="card-body">
               <?php 
-                  if($llave == true){
-                      echo '<a href="https://salaventas.surmonte.cl/proyectos/153sancristobal.php"><img style="width: 100%;" src="assets/proyectos/153SANCRISTOBAL.PNG"></a>';
-                  }else{
-                      echo '<a href="http://localhost/salaventas/proyectos/153sancristobal.php"><img style="width: 100%;" src="assets/proyectos/153SANCRISTOBAL.PNG"></a>';
-                  }
+                  echo '<a href="https://salaventas.surmonte.cl/proyectos/153sancristobal.php"><img style="width: 100%;" src="assets/proyectos/153SANCRISTOBAL.PNG"></a>';
+                  
               ?>
               
             </div>

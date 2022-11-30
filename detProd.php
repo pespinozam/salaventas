@@ -16,15 +16,8 @@ $rut = $_GET['rut_cli'];
 
 <div class="container-fluid">
     <?php 
-    $llave = false;
-    $enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    
-    if($enlace_actual == 'http://localhost/salaventas/detProd.php'){
-        $llave = false;
-    }else{
-        // header("Location: https://salaventas.surmonte.cl/index.php");
-        $llave = true;
-    }?>
+    header("Location: https://salaventas.surmonte.cl/index.php");
+    ?>
 
    <div class="row mx-5 mt-5">
         <h3>Detalle Departamento</h3>
@@ -68,11 +61,8 @@ $rut = $_GET['rut_cli'];
                                     <div class="d-grid gap-2 col-6 mx-auto ">
                                         <button type='button' style='padding: 6px; background-color: rgb(255 151 53); color: white' class='form btn mb-4'>Descargar</button>
                                         <?php 
-                                            if($llave == true){
-                                                echo '<a type="button" href="https://salaventas.surmonte.cl/misproductos.php" style="padding: 6px; background-color: rgb(255 151 53); color: white;" class="form btn mb-4">Volver</a>';
-                                            }else{
-                                                echo '<a href="http://localhost/salaventas/misproductos.php" type="button" id="btnMinimizar" style = "background-color: rgb(255 151 53); color: white;" data-card-widget="collapse" class="btn p-1 m-1" style="">Volver</a>';
-                                            }
+                                            echo '<a type="button" href="https://salaventas.surmonte.cl/misproductos.php" style="padding: 6px; background-color: rgb(255 151 53); color: white;" class="form btn mb-4">Volver</a>';
+                                            
                                         ?>
                                         
                                     </div>
