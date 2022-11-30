@@ -9,14 +9,9 @@ $varsesion = $_SESSION['rut'];
 
 
 if($varsesion == null || $varsesion = ''){
-    if($llave == true)
-    {
-        header("Location: https://salaventas.surmonte.cl/login.php");
-        die();
-    }else{
-        header("Location: https://localhost/salaventas/login.php");
+    header("Location: https://salaventas.surmonte.cl/login.php");
     die();
-    }
+    
     
 }
 
@@ -52,13 +47,7 @@ if($varsesion == null || $varsesion = ''){
 </header>
 <body style="background-color: white; font-family: Lato; margin-top: 100px;">
 <?php
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/homev1.php'){
-    $llave = false;
-}else{
-    $llave = true;
-}
+
 ?>
     <div class="container">
         <?php startblock('content') ?>
@@ -89,11 +78,8 @@ if($enlace_actual == 'http://localhost/salaventas/homev1.php'){
                                 <div class="col">
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <?php 
-                                            if($llave == true){
-                                                echo '<a class="small stretched-link" style="color:white;" href="https://salaventas.surmonte.cl/Vcotizaciones.php">Ver detalle</a>';
-                                            }else{
-                                                echo '<a class="small stretched-link" style="color:white;" href="http://localhost/salaventas/Vcotizaciones.php">Ver detalle</a>';
-                                            }
+                                            echo '<a class="small stretched-link" style="color:white;" href="https://salaventas.surmonte.cl/Vcotizaciones.php">Ver detalle</a>';
+                                            
                                         ?>
                                         
                                         
@@ -124,11 +110,8 @@ if($enlace_actual == 'http://localhost/salaventas/homev1.php'){
                                 <div class="col">
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <?php 
-                                            if($llave == true){
-                                                echo '<a class="small text-white stretched-link" href="https://salaventas.surmonte.cl/Vreserva.php">Ver Reservas</a>';
-                                            }else{
-                                                echo '<a class="small stretched-link" style="color:white;" href="http://localhost/salaventas/Vreserva.php">Ver Reservas</a>';
-                                            }
+                                            echo '<a class="small text-white stretched-link" href="https://salaventas.surmonte.cl/Vreserva.php">Ver Reservas</a>';
+                                            
                                         ?>
                                         
                                         

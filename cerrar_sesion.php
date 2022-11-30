@@ -7,15 +7,8 @@ if(isset($_SESSION['nombre'])){
     session_destroy();
 }
 
-$llave = false;
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+header("Location: https://salaventas.surmonte.cl/index.php");
 
-if($enlace_actual == 'http://localhost/salaventas/cerrar_sesion.php'){
-    $llave = false;
-}else{
-    header("Location: https://salaventas.surmonte.cl/index.php");
-    $llave = true;
-}
 
 
 

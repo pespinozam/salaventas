@@ -7,16 +7,8 @@ session_start();
 $varsesion = $_SESSION['rut'];
 
 if($varsesion == null || $varsesion = ''){
-    if($llave == true)
-    {
-        header("Location: https://salaventas.surmonte.cl/login.php");
-        die();
-    }else{
-        header("Location: https://localhost/salaventas/login.php");
-    die();
-    }
-
-   
+   header("Location: https://salaventas.surmonte.cl/login.php");
+   die();
 }
 ?>
 <!DOCTYPE html>
@@ -60,13 +52,7 @@ if($varsesion == null || $varsesion = ''){
 </header>
 <body style="background-color: white; font-family: Lato; margin-top: 100px;">
 <?php 
-$enlace_actual = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-$llave = false;
-if($enlace_actual == 'http://localhost/salaventas/Vreserva.php'){
-    $llave = false;
-}else{
-    $llave = true;
-}
+
 ?>
    <div class="container">
       <div class="row mt-4">
