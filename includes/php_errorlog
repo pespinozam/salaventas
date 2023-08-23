@@ -1,4 +1,0 @@
-[02-Nov-2022 20:22:06 UTC] PHP Fatal error:  Uncaught Error: Class 'DB' not found in /home/customer/www/salaventas.surmonte.cl/public_html/includes/db_surmonte.php:49
-Stack trace:
-#0 {main}
-  thrown in /home/customer/www/salaventas.surmonte.cl/public_html/includes/db_surmonte.php on line 49

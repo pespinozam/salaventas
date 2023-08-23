@@ -1,6 +1,6 @@
 <?php 
 
-
+date_default_timezone_set('America/Santiago');
 $dateON= date("Y-m-d");
 
 $keyProyecto = 'b871128439c74ed49ee695672e47e5de';
@@ -89,7 +89,7 @@ curl_close($ch);
 
 $array_api = json_decode($response, true);
 
-// var_dump($array_api);
+var_dump($array_api);
 
 $fuente = "Toc Toc";
 
@@ -140,8 +140,8 @@ $fuente = "Toc Toc";
             
             $result = curl_exec($chAPI);
             curl_close($chAPI);
-            echo $result;
-    // echo '<br>'.$rutCliente;
+            // echo $result;
+            // echo '<br>'.$rutCliente;
 
     }
  }

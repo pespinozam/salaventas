@@ -1,0 +1,2 @@
+[27-Jul-2023 19:03:14 UTC] PHP Parse error:  syntax error, unexpected ']' in /home/customer/www/salaventas.surmonte.cl/public_html/sitioweb-formularios/contactanos-sitio-web.php on line 90
+[27-Jul-2023 19:04:04 UTC] PHP Parse error:  syntax error, unexpected '$response' (T_VARIABLE) in /home/customer/www/salaventas.surmonte.cl/public_html/sitioweb-formularios/contactanos-sitio-web.php on line 92

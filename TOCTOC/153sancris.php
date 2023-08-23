@@ -1,7 +1,8 @@
 <?php 
 
-
+date_default_timezone_set('America/Santiago');
 $dateON= date("Y-m-d");
+// $dateON= '2023-07-23';
 
 $keyProyecto = 'bc41ef9cca1140c79392a4653b9e05fc';
 $keyOrigen = 'cf4c7d07e9d6447888fde751abb151dc';
@@ -103,47 +104,46 @@ $fuente = "Toc Toc";
     echo '<br>'.$msg.'<br>';
  }else{
     foreach ($array_api as $value){
-
-        $proyecto = $value['proyecto'];
-        $titulo = $value['nombre'].'-'.$value['email'].'-'.$value['telefono'];
-        $nombre_completo = $value['nombre'];
-        $array_name = explode(' ',$value['nombre']);
-        $name = $array_name[0];
-        $rutCliente = $value['rut'];
-        $mail = $value['email'];
-        $telefonoCliente = $value['telefono'];
-    
-        $post2 = [
-                    "title" => $titulo,
-                    "value" => $nombre_completo,
-                    "currency" =>"CLP",
-                    "user_id" => "",
-                    "person_id" => "",
-                    "dfe9ae38b9a93c369148bd30a2c969ebd8a059f1" => $proyecto,
-                    "org_id" => $proyecto,
-                    "a053abef1b4aebceb9bb17de7d789fd9a5bf9b9f" => $fuente,
-                    "pipeline_id" => $project_pipe,
-                    "stage_id" => $project_status,
-                    "status" => "open",
-                    "expected_close_date" => "",
-                    "probability" => "",
-                    "lost_reason" => "",
-                    "visible_to" => "3",
-                    "add_time" => $dateON,
-                    "c993dded94c0982d52b9a140717b8a12fbe3ec72-add" => $proyecto,
-                    "ff3ab516bad04448ceb525b90cd45ec3cfcdceca" => $mail,
-                    "47434ac3577a44c41cbd4650b0185620f0b45310" => $telefonoCliente
-                ];
-                $chAPI = curl_init('https://api.pipedrive.com/v1/deals?api_token='.$authorization_token);
-                // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($chAPI, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($chAPI, CURLOPT_POSTFIELDS, http_build_query($post2));
-                
-                $result = curl_exec($chAPI);
-                curl_close($chAPI);
-                echo $result;
-        // echo '<br>'.$rutCliente;
-    
+      
+      $proyecto = $value['proyecto'];
+      $titulo = $value['nombre'].'-'.$value['email'].'-'.$value['telefono'];
+      $nombre_completo = $value['nombre'];
+      $array_name = explode(' ',$value['nombre']);
+      $name = $array_name[0];
+      $rutCliente = $value['rut'];
+      $mail = $value['email'];
+      $telefonoCliente = $value['telefono'];
+  
+      $post2 = [
+                  "title" => $titulo,
+                  "value" => $nombre_completo,
+                  "currency" =>"CLP",
+                  "user_id" => "",
+                  "person_id" => "",
+                  "dfe9ae38b9a93c369148bd30a2c969ebd8a059f1" => $proyecto,
+                  "org_id" => $proyecto,
+                  "a053abef1b4aebceb9bb17de7d789fd9a5bf9b9f" => $fuente,
+                  "pipeline_id" => $project_pipe,
+                  "stage_id" => $project_status,
+                  "status" => "open",
+                  "expected_close_date" => "",
+                  "probability" => "",
+                  "lost_reason" => "",
+                  "visible_to" => "3",
+                  "add_time" => $dateON,
+                  "c993dded94c0982d52b9a140717b8a12fbe3ec72-add" => $proyecto,
+                  "ff3ab516bad04448ceb525b90cd45ec3cfcdceca" => $mail,
+                  "47434ac3577a44c41cbd4650b0185620f0b45310" => $telefonoCliente
+              ];
+              $chAPI = curl_init('https://api.pipedrive.com/v1/deals?api_token='.$authorization_token);
+              // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+              curl_setopt($chAPI, CURLOPT_RETURNTRANSFER, true);
+              curl_setopt($chAPI, CURLOPT_POSTFIELDS, http_build_query($post2));
+              
+              $result = curl_exec($chAPI);
+              curl_close($chAPI);
+              // echo $result;
+      // echo '<br>'.$rutCliente;
      }
  }
  

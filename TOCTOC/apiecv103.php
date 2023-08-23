@@ -1,7 +1,8 @@
 <?php 
 
-
+date_default_timezone_set('America/Santiago');
 $dateON= date("Y-m-d");
+// $dateON= '2023-07-24';
 
 $keyProyecto = '7fde88a798db495ead74b63b515606fc';
 $keyOrigen = 'cf4c7d07e9d6447888fde751abb151dc';
@@ -89,7 +90,7 @@ curl_close($ch);
 
 $array_api = json_decode($response, true);
 
-// var_dump($array_api);
+var_dump($array_api);
 
 $fuente = "Toc Toc";
 
@@ -103,6 +104,7 @@ $fuente = "Toc Toc";
   echo '<br>'.$msg.'<br>';
 }else{
   foreach ($array_api as $value){
+    
     $proyecto = $value['proyecto'];
     $titulo = $value['nombre'].'-'.$value['email'].'-'.$value['telefono'];
     $nombre_completo = $value['nombre'];
@@ -140,9 +142,8 @@ $fuente = "Toc Toc";
           
           $result = curl_exec($chAPI);
           curl_close($chAPI);
-          echo $result;
+          // echo $result;
     // echo '<br>'.$rutCliente;
-  
    }
 }
  

@@ -1,7 +1,8 @@
 <?php 
 
-
+date_default_timezone_set('America/Santiago');
 $dateON= date("Y-m-d");
+// $dateON= '2023-07-24';
 
 $keyProyecto = '9781f2c2b5b646c58c8a717aa4c85d08';
 $keyOrigen = 'cf4c7d07e9d6447888fde751abb151dc';
@@ -102,9 +103,9 @@ $fuente = "Toc Toc";
     $msg = "No se encontraron registros para los parametros enviados. 42linares";
     echo '<br>'.$msg.'<br>';
  }else{
-    foreach ($array_api as $value){
 
-        $proyecto = $value['proyecto'];
+    foreach ($array_api as $value){
+      $proyecto = $value['proyecto'];
         $titulo = $value['nombre'].'-'.$value['email'].'-'.$value['telefono'];
         $nombre_completo = $value['nombre'];
         $array_name = explode(' ',$value['nombre']);
@@ -143,8 +144,8 @@ $fuente = "Toc Toc";
                 curl_close($chAPI);
                 // echo $result;
         // echo '<br>'.$rutCliente;
-    
-     }
+        
+    }
  }
  
 
